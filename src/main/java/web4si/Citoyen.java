@@ -9,23 +9,23 @@ package web4si;
  *
  * @author aazri
  */
-public class Citoyen {
-    int idCitoyen;
-    String nomCitoyen;
-    String prenomCitoyen;
-    String adresseCitoyen;
+public class Citoyen 
+{
     
-    public Citoyen() {} // JPA !!
-
-    public Citoyen(int idCitoyen, String nomCitoyen, String prenomCitoyen, String adresseCitoyen) {
-        this.idCitoyen = idCitoyen;
-        this.nomCitoyen = nomCitoyen;
-        this.prenomCitoyen = prenomCitoyen;
-        this.adresseCitoyen = adresseCitoyen;
-    }
-
+    // Attributs
+    
+    
+    private int idCitoyen;
+    private String nomCitoyen;
+    private String prenomCitoyen;
+    private String adresseCitoyen;
+    
+    
+    // Propriétés
+    
+    
     public int getIdCitoyen() {
-        return idCitoyen;
+        return this.idCitoyen;
     }
 
     public void setIdCitoyen(int idCitoyen) {
@@ -33,7 +33,7 @@ public class Citoyen {
     }
 
     public String getNomCitoyen() {
-        return nomCitoyen;
+        return this.nomCitoyen;
     }
 
     public void setNomCitoyen(String nomCitoyen) {
@@ -41,7 +41,7 @@ public class Citoyen {
     }
 
     public String getPrenomCitoyen() {
-        return prenomCitoyen;
+        return this.prenomCitoyen;
     }
 
     public void setPrenomCitoyen(String prenomCitoyen) {
@@ -49,12 +49,23 @@ public class Citoyen {
     }
 
     public String getAdresseCitoyen() {
-        return adresseCitoyen;
+        return this.adresseCitoyen;
     }
 
     public void setAdresseCitoyen(String adresseCitoyen) {
         this.adresseCitoyen = adresseCitoyen;
     }
     
+    
+    // Constructeurs
+    
+    public Citoyen() {} // JPA !!
+    
 
+    public Citoyen(int idCitoyen, String nomCitoyen, String prenomCitoyen, String adresseCitoyen) {
+        this.idCitoyen = idCitoyen;
+        this.nomCitoyen = nomCitoyen;
+        this.prenomCitoyen = prenomCitoyen;
+        this.adresseCitoyen = adresseCitoyen;
+    }    
 }

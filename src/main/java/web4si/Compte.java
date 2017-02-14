@@ -10,38 +10,38 @@ package web4si;
  * @author Tom Verhoof
  */
 
-public class Role 
+public class Compte 
 {
         
     // Attributs
  
     
-    private int idRole;
-    private String nomRole;
+    private String login;
+    private String mdp;
     
     
     // Propriétés
-
     
-    public int getIdRole() {
-        return this.idRole;
+
+    public String getLogin() {
+        return this.login;
     }
 
-    public void setIdRole(int idRole) {
-        this.idRole = idRole;
+    public void setLogin(String login) {
+        this.login = login;
     }
 
-    public String getNomRole() {
-        return this.nomRole;
+    public String getMdp() {
+        return this.mdp;
     }
 
-    public void setNomRole(String nomRole) {
-        this.nomRole = nomRole;
+    public void setMdp(String mdp) {
+        this.mdp = mdp;
     }
-            
+       
     
     // Constructeur
     
     
-    public Role() {}  // JPA
+    public Compte() {}  // JPA
 }
