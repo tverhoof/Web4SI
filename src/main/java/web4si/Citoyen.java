@@ -14,6 +14,8 @@ public class Citoyen {
     String nomCitoyen;
     String prenomCitoyen;
     String adresseCitoyen;
+    
+    public Citoyen() {} // JPA !!
 
     public Citoyen(int idCitoyen, String nomCitoyen, String prenomCitoyen, String adresseCitoyen) {
         this.idCitoyen = idCitoyen;
