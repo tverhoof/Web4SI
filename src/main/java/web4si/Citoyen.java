@@ -78,6 +78,5 @@ public class Citoyen {
         infoReportIncident.add(this.adresseCitoyen);
         infoReportIncident.add(etatDemande);
         infoReportIncident.add(this.objetIncident);
-    }
-    
+    }  
 }

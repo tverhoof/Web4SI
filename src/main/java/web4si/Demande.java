@@ -5,31 +5,36 @@
  */
 package web4si;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+
 /**
  *
  * @author Tom Verhoof
  */
 
+@Entity
 public class Demande 
 {
         
     // Attributs
- 
     
-    private int idDemande;
+ 
+    @Id
+    @GeneratedValue
+    private Long idDemande;
     private String descriptionDemande;
-    private Citoyen citoyen;
-    private Demande demande;
     
     
     // Propriétés
     
     
-    public int getIdDemande() {
+    public Long getIdDemande() {
         return this.idDemande;
     }
 
-    public void setIdDemande(int idDemande) {
+    public void setIdDemande(Long idDemande) {
         this.idDemande = idDemande;
     }
 
@@ -39,22 +44,6 @@ public class Demande
 
     public void setDescriptionDemande(String descriptionDemande) {
         this.descriptionDemande = descriptionDemande;
-    }
-
-    public Citoyen getCitoyen() {
-        return this.citoyen;
-    }
-
-    public void setCitoyen(Citoyen citoyen) {
-        this.citoyen = citoyen;
-    }
-
-    public Demande getDemande() {
-        return this.demande;
-    }
-
-    public void setDemande(Demande demande) {
-        this.demande = demande;
     }
     
     
