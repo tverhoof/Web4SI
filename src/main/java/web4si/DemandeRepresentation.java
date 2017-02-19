@@ -54,6 +54,12 @@ public class DemandeRepresentation
                 .orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));            
     }
     
+    @RequestMapping(method=RequestMethod.GET, value="/etat/{demandeEtat}")
+    public ResponseEntity<?> getDemandesAvecEtat(@PathVariable("demandeEtat") String etat) 
+    {        
+        return new ResponseEntity<>(fr.findByEtat(etat), HttpStatus.OK);
+    }
+    
     @RequestMapping(method=RequestMethod.POST)
     public ResponseEntity<?> saveDemande(@RequestBody Demande formation)
     {

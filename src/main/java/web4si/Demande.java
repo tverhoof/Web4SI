@@ -25,6 +25,7 @@ public class Demande
     @GeneratedValue
     private Long idDemande;
     private String descriptionDemande;
+    private String etat;
     
     
     // Propriétés
@@ -45,6 +46,10 @@ public class Demande
     public void setDescriptionDemande(String descriptionDemande) {
         this.descriptionDemande = descriptionDemande;
     }
+    
+    public String getEtat() { return this.etat; }
+    
+    public void setEtat(String etat) { this.etat = etat; }
     
     
     // Constructeur

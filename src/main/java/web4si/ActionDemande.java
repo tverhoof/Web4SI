@@ -5,29 +5,38 @@
  */
 package web4si;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+
 /**
  *
  * @author Tom Verhoof
  */
 
+@Entity
 public class ActionDemande 
 {
     
     // Attributs
  
+    @Id
+    @GeneratedValue
+    private Long actionDemande;
     
-    private int actionDemande;
+    @Column(length=30)
     private String nomAction;
     
     
     // Propriétés
     
     
-    public int getActionDemande() {
+    public Long getActionDemande() {
         return this.actionDemande;
     }
 
-    public void setActionDemande(int actionDemande) {
+    public void setActionDemande(Long actionDemande) {
         this.actionDemande = actionDemande;
     }
 
