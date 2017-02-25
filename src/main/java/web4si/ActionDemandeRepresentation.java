@@ -60,7 +60,15 @@ public class ActionDemandeRepresentation
         return new ResponseEntity<>(null, responseHeaders, HttpStatus.CREATED);
     }
     
-    
+    @RequestMapping(method=RequestMethod.PUT, value="/{actionDemandeId}")
+    public ResponseEntity<?> updateDemande(@RequestBody ActionDemande actionDemande,
+            @PathVariable("actionDemandeId") Long id) 
+    {
+        actionDemande.setIDActionDemande(id);
+        ActionDemande d = fr.save(actionDemande);
+        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+    }
+      
     // HATEOS
     
     private Resource<ActionDemande> actionDemandeToRessource(ActionDemande actionDemande,
