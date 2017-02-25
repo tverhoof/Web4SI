@@ -38,9 +38,9 @@ public class ActionDemande
     
     private Date dateAction;
     
-    @ManyToOne
-    @JoinColumn(name = "idDemande")
-    private Demande demande;
+    // @ManyToOne
+    // @JoinColumn(name = "idDemande")
+    private /* Demande */ Long demande;
     
     
     // Propriétés
@@ -86,9 +86,11 @@ public class ActionDemande
         this.dateAction = dateAction;
     }
     
-    public Demande getDemande() { return this.demande; }
+    public /*Demande*/ Long getDemande() { return this.demande; }
     
-    public void setDemande(Demande dmd) { this.demande = dmd; }
+    //public void setDemande(Demande dmd) { this.demande = dmd; }
+    public void setDemande(Long dmd) { this.demande = dmd; }
+    
     
     // Constructeur
     

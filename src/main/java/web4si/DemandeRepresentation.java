@@ -37,9 +37,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class DemandeRepresentation 
 {
     @Autowired
-    DemandeRessource fr;
-    
-    
+    DemandeRessource fr;    
     
     @GetMapping
     public ResponseEntity<?>getAllDemandes(){
