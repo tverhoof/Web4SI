@@ -7,6 +7,7 @@ package web4si;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.hateoas.ExposesResourceFor;
 import org.springframework.hateoas.Link;
@@ -49,7 +50,7 @@ public class ActionDemandeRepresentation
     }
     
     @RequestMapping(method=RequestMethod.POST)
-    public ResponseEntity<?> saveDemande(@RequestBody ActionDemande formation)
+    public ResponseEntity<?> saveActionDemande(@RequestBody ActionDemande formation)
     {
         ActionDemande sauvegarde = fr.save(formation);
         HttpHeaders responseHeaders = new HttpHeaders();
@@ -61,14 +62,27 @@ public class ActionDemandeRepresentation
     }
     
     @RequestMapping(method=RequestMethod.PUT, value="/{actionDemandeId}")
-    public ResponseEntity<?> updateDemande(@RequestBody ActionDemande actionDemande,
+    public ResponseEntity<?> updateActionDemande(@RequestBody ActionDemande actionDemande,
             @PathVariable("actionDemandeId") Long id) 
     {
         actionDemande.setIDActionDemande(id);
         ActionDemande d = fr.save(actionDemande);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
-      
+    
+      @RequestMapping(method=RequestMethod.GET, value="/{actionDemandeId}")
+    public ResponseEntity<?> getOneActionDemande(@PathVariable("actionDemandeId") Long id) {
+        return Optional.ofNullable(fr.findOne(id))
+                .map(f -> new ResponseEntity<>(actionDemandeToRessource(f, true),
+                        HttpStatus.OK))
+                .orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));            
+    }
+    
+    
+    
+
+    
+    
     // HATEOS
     
     private Resource<ActionDemande> actionDemandeToRessource(ActionDemande actionDemande,
