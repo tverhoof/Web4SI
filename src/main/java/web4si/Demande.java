@@ -5,9 +5,15 @@
  */
 package web4si;
 
+import java.util.ArrayList;
+import java.util.Set;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 
 /**
  *
@@ -23,9 +29,17 @@ public class Demande
  
     @Id
     @GeneratedValue
+    @Column(name = "idDemande")
     private Long idDemande;
     private String descriptionDemande;
     private String etat;
+    private String nom;
+    private String prenom;
+    private String adresse;
+    
+    
+    @OneToMany(mappedBy = "demande")
+    private Set<ActionDemande> actiondemandes;
     
     
     // Propriétés
@@ -50,6 +64,30 @@ public class Demande
     public String getEtat() { return this.etat; }
     
     public void setEtat(String etat) { this.etat = etat; }
+
+    public String getNom() {
+        return this.nom;
+    }
+
+    public void setNom(String nom) {
+        this.nom = nom;
+    }
+
+    public String getPrenom() {
+        return this.prenom;
+    }
+
+    public void setPrenom(String prenom) {
+        this.prenom = prenom;
+    }
+
+    public String getAdresse() {
+        return this.adresse;
+    }
+
+    public void setAdresse(String adresse) {
+        this.adresse = adresse;
+    }    
     
     
     // Constructeur

@@ -17,6 +17,6 @@ import org.springframework.hateoas.Resource;
 
 public interface DemandeRessource extends JpaRepository<Demande, Long>
 {
-    @Query("SELECT idDemande, descriptionDemande, etat FROM Demande WHERE etat = ?1")
+    @Query("SELECT idDemande, descriptionDemande, etat, nom, prenom, adresse FROM Demande WHERE etat = ?1")
     ArrayList<Demande> findByEtat(String etat);
 }

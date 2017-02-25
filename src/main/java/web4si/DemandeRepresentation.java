@@ -39,6 +39,8 @@ public class DemandeRepresentation
     @Autowired
     DemandeRessource fr;
     
+    
+    
     @GetMapping
     public ResponseEntity<?>getAllDemandes(){
         Iterable<Demande> allDemandes = fr.findAll();
@@ -70,7 +72,16 @@ public class DemandeRepresentation
         .toUri());
         
         return new ResponseEntity<>(null, responseHeaders, HttpStatus.CREATED);
-    }    
+    }
+    
+    @RequestMapping(method=RequestMethod.PUT, value="/{demandeId}")
+    public ResponseEntity<?> updateDemande(@RequestBody Demande demande,
+            @PathVariable("demandeId") Long id) 
+    {
+        demande.setIdDemande(id);
+        Demande d = fr.save(demande);
+        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+    }
     
     // HATEOS
     
