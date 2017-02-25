@@ -81,6 +81,14 @@ public class DemandeRepresentation
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
     
+    @RequestMapping(method=RequestMethod.DELETE, value="/{demandeId}")
+    public ResponseEntity<?> deleteOneDemande(@PathVariable("demandeId") Long id) {
+        return Optional.ofNullable(fr.findOne(id))
+                .map(f -> new ResponseEntity<>(demandeToRessource(f, true),
+                        HttpStatus.OK))
+                .orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));            
+    }
+    
     // HATEOS
     
     private Resource<Demande> demandeToRessource(Demande demande,
